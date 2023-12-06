@@ -2,6 +2,15 @@ import express from "express"
 import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
+import mongoose from "mongoose"
+import { createCar } from "./api/v1/2_components/addCar/service_createCar";
+
+// Connect to server
+mongoose.connect("mongodb://127.0.0.1:27017/car_store")
+	.then(_=>console.log('mongodb connected!'))
+	.catch(err=>{throw new Error(err)})
+
+// createCar({imageName:"van0.webp",type:"van"})
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const express_app = express()
