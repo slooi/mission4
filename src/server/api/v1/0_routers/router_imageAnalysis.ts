@@ -3,6 +3,7 @@ import { controller_getImageTags, controller_getImageTagsDev } from "../1_contro
 import multer from "multer";
 import path from "path"
 import { fileURLToPath } from 'url';
+import { controller_mongoGetImageTags } from "../1_controllers/controller_mongoGetImageTags";
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const router_imageAnalysis = express.Router()
@@ -24,6 +25,6 @@ const upload = multer({
 // })
 
 router_imageAnalysis.get("/imageanalysis/tags/dev",controller_getImageTagsDev)
-router_imageAnalysis.post("/imageanalysis/tags", upload.single("photo"),controller_getImageTags)
+router_imageAnalysis.post("/imageanalysis/tags", upload.single("photo"),controller_mongoGetImageTags)
 
 export {router_imageAnalysis}

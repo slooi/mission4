@@ -4,7 +4,7 @@ import path from "path"
 import { fileURLToPath } from 'url';
 import mongoose from "mongoose"
 import { createCar } from "./api/v1/2_components/mongodbCar/service_createCar";
-import { getCarByType } from "./api/v1/2_components/mongodbCar/service_findCar";
+import { getCarsByType } from "./api/v1/2_components/mongodbCar/service_findCar";
 
 // Connect to server
 mongoose.connect("mongodb://127.0.0.1:27017/car_store")
@@ -12,7 +12,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/car_store")
 	.catch(err=>{throw new Error(err)})
 
 // async function get(){
-// 	console.log(await getCarByType("supercar"))
+// 	console.log(await getCarsByType("supercar"))
 // }
 // get()
 // createCar({imageName:"van0.webp",type:"van"})
