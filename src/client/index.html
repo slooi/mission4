@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vite + React + TS</title>
+</head>
+
+<body>
+	<div id="root">
+		<form onsubmit="send(event,this)" action="/api/v1/imageanalysis/tags/" method="post"
+			enctype="multipart/form-data">
+			<input type="file" accept="image/*" name="photo" />
+			<input type="submit" value="upload" />
+		</form>
+	</div>
+	<script>
+		function send(e, form) {
+			console.log("SENDING FORM!")
+			e.preventDefault();
+			fetch(form.action, { method: 'post', body: new FormData(form) }).then(res => {
+				return res.json()
+			}).then(res => {
+				console.log(res)
+				if (res.length){
+					const imageHolder = document.getElementById("image-holder")
+					imageHolder.innerHTML =""
+
+					for(let i=0;i<res.length;i++){
+						const img = document.createElement("img")
+						img.src = res[i]
+						imageHolder.appendChild(img)
+					}
+				}
+			})
+			console.log('We send post asynchronously (AJAX)');
+		}
+	</script>
+	<div id="image-holder"></div>
+
+
+
+	<!-- <script type="module" src="./main.tsx"></script> -->
+</body>
+
+</html>
