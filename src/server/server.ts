@@ -3,13 +3,18 @@ import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
 import mongoose from "mongoose"
-import { createCar } from "./api/v1/2_components/addCar/service_createCar";
+import { createCar } from "./api/v1/2_components/mongodbCar/service_createCar";
+import { getCarByType } from "./api/v1/2_components/mongodbCar/service_findCar";
 
 // Connect to server
 mongoose.connect("mongodb://127.0.0.1:27017/car_store")
 	.then(_=>console.log('mongodb connected!'))
 	.catch(err=>{throw new Error(err)})
 
+// async function get(){
+// 	console.log(await getCarByType("supercar"))
+// }
+// get()
 // createCar({imageName:"van0.webp",type:"van"})
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
