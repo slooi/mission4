@@ -69,6 +69,14 @@ sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
 npm run dev-server
 ```
 
+# cli
+Below are the cli commands to interact with mongodb
+
+- seed
+```
+tsx src/server/cli.ts seed
+```
+
 
 # Resources
 
