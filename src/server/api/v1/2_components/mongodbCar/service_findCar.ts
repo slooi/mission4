@@ -6,5 +6,5 @@ const PATH_PREFIX = "public/imgs/"
 
 export const getCarsByType = async(types: Car["imageName"][])=>{
 	const cars = await CarModel.find({type:{$in:types}},{imageName:true})
-	return cars.map(car=>PATH_PREFIX+car.imageName)
+	return Array.from(new Set(cars.map(car=>PATH_PREFIX+car.imageName)))		//!@#!@# Not efficient can speed up later
 }

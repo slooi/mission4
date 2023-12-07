@@ -15,7 +15,7 @@ const controller_mongoGetImageTags = async (req:Request,res:Response)=>{
 		try{
 			const azureTagArray = AzureTagArray.parse(tags)
 			const tagNames = azureTagArray.map(tagItem=>tagItem.name)
-
+			console.log("tagNames",tagNames)
 			const imageUrls = await getCarsByType(tagNames)
 
 			console.log("imageUrls")

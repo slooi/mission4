@@ -21,7 +21,7 @@ const getTagsFromImageUrl = async (imageUrl:string)=>{
 		console.log("jsonfied data:")
 		console.log(data)
 		const tags = data.tagsResult.values
-		console.log("tags0")
+		console.log("func : getTagsFromImageUrl tags")
 		console.log(tags)
 
 		return tags

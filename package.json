@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
 
-    "cli:seed": "tsx src/server/cli.ts"
+    "cli": "tsx src/server/cli.ts"
   },
   "bin": "./dist/cli.js",
   "dependencies": {
