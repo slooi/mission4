@@ -3,7 +3,7 @@ import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
 import mongoose from "mongoose"
-import { createCar } from "./api/v1/2_components/mongodbCar/service_createCar";
+import { createCar, seedCars } from "./api/v1/2_components/mongodbCar/service_createCar";
 import { getCarsByType } from "./api/v1/2_components/mongodbCar/service_findCar";
 
 // Connect to server
@@ -16,6 +16,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/car_store")
 // }
 // get()
 // createCar({imageName:"van0.webp",type:"van"})
+seedCars()
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const express_app = express()
