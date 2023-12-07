@@ -64,7 +64,7 @@ tsx src/server/cli.ts seed
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
 ```
 
-8) Run the server:
+9) Run the server:
 ```
 npm run dev-server
 ```
@@ -75,6 +75,18 @@ Below are the cli commands to interact with mongodb
 - seed
 ```
 tsx src/server/cli.ts seed
+```
+#### add & delete
+(The image paths and carUrl must be relative to `src/client/public/imgs`)
+
+- add 
+```
+tsx src/server/cli.ts add <imagePath> -t <carType>
+tsx src/server/cli.ts add pickup0.webp -t van
+```
+- delete <carUrl>
+```
+tsx src/server/cli.ts delete <carUrl>
 ```
 
 
