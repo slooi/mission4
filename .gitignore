@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 .env
-src/client/public/*
+src/client/public/userUploads
