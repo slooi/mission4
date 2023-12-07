@@ -4,11 +4,12 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Vite + React + TS</title>
+	<title>Turners Cars Car Finder</title>
 </head>
 
 <body>
 	<div id="root">
+		<h2>Find similar cars</h2>
 		<form onsubmit="send(event,this)" action="/api/v1/imageanalysis/tags/" method="post"
 			enctype="multipart/form-data">
 			<input type="file" accept="image/*" name="photo" />
