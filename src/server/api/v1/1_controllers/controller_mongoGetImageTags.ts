@@ -9,7 +9,7 @@ import { getCarsByType } from "../2_components/mongodbCar/service_findCar";
 const controller_mongoGetImageTags = async (req:Request,res:Response)=>{
 	if (req.file) {
 		const userSpecifiedFileName = req.file.originalname;
-		const imageUrl = `${process.env.SERVER_IP}/public/userUploads/${userSpecifiedFileName}`;
+		const imageUrl = `${process.env.SERVER_IP_N_SCHEME}/public/userUploads/${userSpecifiedFileName}`;
 		const tags = await getTagsFromImageUrl(imageUrl)	
 		
 		try{
@@ -32,7 +32,7 @@ const controller_mongoGetImageTags = async (req:Request,res:Response)=>{
 
 // #################### DEV VERSION #################
 const controller_getImageTagsDev = async (req:Request,res:Response)=>{
-	const imageUrl = `${process.env.SERVER_IP}/public/img.jpg`;
+	const imageUrl = `${process.env.SERVER_IP_N_SCHEME}/public/img.jpg`;
 	const tags = await getTagsFromImageUrl(imageUrl)
 	res.json(tags)
 }

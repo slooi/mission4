@@ -8,7 +8,7 @@ import { service_filterForCarTypesOnly } from "../2_components/service_filterFor
 const controller_getImageTags = async (req:Request,res:Response)=>{
 	if (req.file) {
 		const userSpecifiedFileName = req.file.originalname;
-		const imageUrl = `${process.env.SERVER_IP}/public/userUploads/${userSpecifiedFileName}`;
+		const imageUrl = `${process.env.SERVER_IP_N_SCHEME}/public/userUploads/${userSpecifiedFileName}`;
 		const tags = await getTagsFromImageUrl(imageUrl)	
 		
 		try{
@@ -35,7 +35,7 @@ const controller_getImageTags = async (req:Request,res:Response)=>{
 
 // #################### DEV VERSION #################
 const controller_getImageTagsDev = async (req:Request,res:Response)=>{
-	const imageUrl = `${process.env.SERVER_IP}/public/img.jpg`;
+	const imageUrl = `${process.env.SERVER_IP_N_SCHEME}/public/img.jpg`;
 	const tags = await getTagsFromImageUrl(imageUrl)
 	res.json(tags)
 }
